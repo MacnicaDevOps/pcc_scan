@@ -8,7 +8,7 @@ However, machine image cannot be customed, thus need to download twistcli on eve
 
 ## Parameters
 
-| Key | Value | example | note |
+| Key | Value | example | description |
 | :---- | :---- | :---- | :---- |
 | TL_IMAGE | (image-name):(tag)| macnica-image:0.7 | Can change value in config.yml |
 | TL_V | (critical, high, middle, low) | critical | Vulnerability threshold. Can change value in config.yml |
