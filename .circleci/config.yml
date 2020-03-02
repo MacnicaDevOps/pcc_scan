@@ -1,16 +1,7 @@
 version: 2
-#executors:
-#  default:
-#    machine: true
-#    working_directory: /tmp/twistlock-scan
 jobs:
   build:
     executor: machine
-    #docker:
-    #  - image: minepicco/cci-aws-docker:latest
-        #aws_auth:
-        #  aws_access_key_id: $AWS_ACCESS_KEY_ID
-        #  aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
     environment:
       TL_IMAGE: macnica-image:0.7
       TL_V: critical
@@ -18,8 +9,6 @@ jobs:
       TL_C: critical
     steps:
       - checkout
-    #  - setup_remote_docker
-
       - run:
           name: build
           command: docker build -t $TL_IMAGE .
@@ -32,9 +21,3 @@ jobs:
           name: scan image
           command: |
             ./twistcli images scan --details --address $TL_URL -u $tl_u -p $tl_p --vulnerability-threshold $TL_V $TL_OPT --compliance-threshold $TL_C $TL_IMAGE
-      #- run:
-      #    name: docker login
-      #    command: docker login -u $username -p $password #-e $mailaddress     
-      #- run:
-      #    name: docker push
-      #    command: docker push $image
