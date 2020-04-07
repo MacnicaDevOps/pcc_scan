@@ -6,7 +6,7 @@ jobs:
       TL_IMAGE: macnica-image:0.7
       TL_V: critical
       TL_OPT: --only-fixed
-      TL_C: critical
+      TL_C: high
     steps:
       - checkout
       - run:
