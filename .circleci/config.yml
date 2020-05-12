@@ -17,5 +17,5 @@ jobs:
       - run:
           name: scan image
           command: |
-            ./twistcli images scan --details --address $TL_URL -u $tl_u -p $tl_p --ci $TL_C $TL_IMAGE
+            ./twistcli images scan --details --address $TL_URL -u $tl_u -p $tl_p --ci $TL_IMAGE
 
