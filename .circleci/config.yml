@@ -3,12 +3,12 @@ jobs:
   build:
     executor: machine
     environment:
-      TL_IMAGE: "macnicadevops/demo:"$CIRCLE_BUILD_NUM
+      TL_IMAGE: "macnicadevops/demo"
     steps:
       - checkout
       - run:
           name: build
-          command: docker build -t $TL_IMAGE .
+          command: docker build -t $TL_IMAGE":"$CIRCLE_BUILD_NUM .
       - run:
           name: get twistcli
           command: |
@@ -17,5 +17,5 @@ jobs:
       - run:
           name: scan image
           command: |
-            ./twistcli images scan --details --address $TL_URL -u $tl_u -p $tl_p --ci $TL_IMAGE
+            ./twistcli images scan --details --address $TL_URL -u $tl_u -p $tl_p --ci $TL_IMAGE":"$CIRCLE_BUILD_NUM
 
