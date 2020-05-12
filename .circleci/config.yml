@@ -3,7 +3,7 @@ jobs:
   build:
     executor: machine
     environment:
-      TL_IMAGE: macnica-image:0.7
+      TL_IMAGE: $CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
     steps:
       - checkout
       - run:
