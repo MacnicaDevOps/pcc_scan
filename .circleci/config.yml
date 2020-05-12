@@ -19,7 +19,7 @@ jobs:
           command: |
             ./twistcli images scan --details --address $TL_URL -u $tl_u -p $tl_p --ci $TL_IMAGE":"$CIRCLE_BUILD_NUM | tee result.out
             e=`cat result.out | grep -c "Scan failed due to"`
-            if [ $e -gt 0 ]; then
+            if [ $e -gt 1 ]; then
               echo "Build failed"
               exit 1
             fi
