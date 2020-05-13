@@ -3,7 +3,7 @@ jobs:
   build:
     executor: machine
     environment:
-      TL_IMAGE: "macnicadevops/demo"
+      TL_IMAGE: "macnicadevops/cci-demo"
     steps:
       - checkout
       - run:
